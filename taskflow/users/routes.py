@@ -4,7 +4,7 @@ from werkzeug.security import check_password_hash
 from taskflow import db, bcrypt
 from taskflow.models import User
 
-users = Blueprint("users", __name__, "/api/auth")
+users = Blueprint("users", __name__, url_prefix="/api/auth")
 
 @users.route("/register", methods=["POST"])
 def register():

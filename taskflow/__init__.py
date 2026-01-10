@@ -21,10 +21,13 @@ def create_app(config_class: type[Config] = Config) -> Flask:
     jwt.init_app(app)
     
     from taskflow.users.routes import users
+    from taskflow.tasks.routes import tasks
     
     app.register_blueprint(users)
+    app.register_blueprint(tasks)
 
     with app.app_context():
         db.create_all()
 
     return app
+
